@@ -20,6 +20,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Typeface;
@@ -270,9 +271,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 				tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, tabTextSize);
                 tab.setTypeface(tabTypeface, tabTypefaceStyle);
                 if (currentPosition == i) {
-                    tab.setTextColor(indicatorColor);
-                } else {
                     tab.setTextColor(tabTextColor);
+                } else {
+                    tab.setTextColor(Color.argb(0x99, (tabTextColor >> 16) & 0xFF, (tabTextColor >> 8) & 0xFF, tabTextColor & 0xFF));
                 }
 
 				// setAllCaps() is only available from API 14, so the upper case is made manually if we are on a
