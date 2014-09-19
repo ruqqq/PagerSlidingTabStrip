@@ -364,6 +364,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 			currentPositionOffset = positionOffset;
 
 			scrollToChild(position, (int) (positionOffset * tabsContainer.getChildAt(position).getWidth()));
+            updateTabStyles();
 
 			invalidate();
 
@@ -390,6 +391,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 			if (delegatePageListener != null) {
 				delegatePageListener.onPageSelected(position);
 			}
+
+            updateTabStyles();
 		}
 
 	}
